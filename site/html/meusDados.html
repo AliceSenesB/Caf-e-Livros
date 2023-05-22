@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Dados - Café & Livros</title>
+
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    
+       <!-- INÍCIO SIMULADOR -->
+       <div class="simulador">
+        <div class="simuladorContainer">
+            <div class="tituloSimulador">
+                Calculadora Literária
+            </div>
+            <div class="chamada">Que tal calcular quantas páginas preciso ler por dia para terminar um livro em 1 mês
+                <span class="subChamada">
+                    Se ler um livro por mês, ao final do ano você terá lido 12 livros! Pode parecer muito, mas aos
+                    poucos se tornará fácil e quem sabe até mesmo será possível diminuir o tempo de leitura e aumentar
+                    os livros lidos por mês!
+                </span>
+            </div>
+            <div class="explicacao">
+                Este é um teste de tempo. Para que seja efetivo, é preciso que você leia o trecho a seguir como faria em
+                uma situação de leitura comum e sem pular nenhuma parte.
+                <p> O cronômetro começará a rodar quando você pressionar o botão.</p>
+                <button onclick="teste()">Começar Teste</button>
+                <div id="div_trechoLivro"></div>
+                <div class="resultado">Você leu <span>350</span> palavras em <span>_____</span> segundos.</div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM SIMULADOR -->
+
+</body>
+</html>
+<script>
+
+    function teste() {
+
+        div_trechoLivro.innerHTML = `Mr. Bennet foi uma das primeiras pessoas que visitaram Mr. Bingley. Sempre fora esta a sua intenção, embora continuasse a assegurar até o fim à sua esposa que não iria de forma alguma; nada lhe disse até à noite do dia em que fez a visita. Só aí ele o revelou, da seguinte maneira: vendo a sua segunda filha ocupada em reformar um chapéu, dirigiu-lhe de súbito estas palavras: <br><br>
+
+— Espero que Mr. Bingley goste do chapéu, Lizzy.<br><br>
+
+— Não temos nenhum modo de saber as preferências de Mr. Bingley já que não podemos visitá-lo — interveio a mãe, ressentida.<br><br>
+
+— Mas você se esquece, mamãe — disse Elizabeth —, de que nós o encontraremos em reuniões e que Mrs. Long nos prometeu apresentá-lo.<br><br>
+
+— Não creio que Mrs. Long faça tal coisa. Ela tem duas sobrinhas e é uma mulher egoísta e hipócrita. A minha opinião sobre ela não é boa.<br><br>
+
+— Nem a minha tampouco — disse Mr. Bennet.<br><br>
+
+— Alegra-me saber que você não depende dos serviços dela.<br><br>
+
+Mrs. Bennet não se dignou responder. Incapaz de dominar-se por mais tempo, entretanto, pôs-se a ralhar com uma das filhas:<br><br>
+
+— Não tussa desse modo, pelo amor de Deus, Kitty . Tenha um pouco de piedade dos meus nervos... Você está dilacerando-os!<br><br>
+
+— Kitty não sabe tossir discretamente — disse o pai.<br><br>
+
+— Não tem noção do momento oportuno.<br><br>
+
+— Não tusso para distrair-me — respondeu Kitty, irritada. — Quando será o nosso próximo baile, Lizzy?<br><br>
+
+— De amanhã a 15 dias.<br><br>
+
+— É verdade — gritou a mãe. — E Mrs. Long só estará de volta na véspera desse dia. Logo, ser-lhe-á impossível fazer a apresentação do estranho, pois ela tampouco o terá conhecido.<br><br>
+
+— Portanto, minha cara, você poderá adiantar-se à sua amiga e apresentar Mr. Bingley a ela.<br><br>
+
+— Impossível, Mr. Bennet, impossível! Se eu não tenho relações com ele! Como pode você ser tão provocante?<br><br>
+
+— Respeito a sua discrição. Quinze dias de conhecimento decerto não são suficientes. Não se pode conhecer realmente um homem em tão curto espaço de tempo. Mas se não arriscarmos, outra pessoa o fará. E afinal de contas, Mrs. Long e as suas sobrinhas devem ter também a sua oportunidade. E como lhe será fácil pensar que é um ato de caridade da sua parte recusar tal incumbência, eu assumirei a responsabilidade.<br><br>
+
+As meninas olharam fixamente para o pai. Mrs. Bennet disse apenas:<br><br>
+
+— Tolice, tolice.`;
+
+        <button onclick="acabarTeste()">Acabei!</button>;
+
+        const element = document.getElementById("testeLeitura");
+        var contador = 0
+        var tempo = setInterval(function () { element.innerHTML = contador++ }, 1000);
+        tempo
+    };
+
+    function acabarTeste() {
+
+        clearInterval(tempo);
+    };
+
+
+
+
+
+
+
+</script>
