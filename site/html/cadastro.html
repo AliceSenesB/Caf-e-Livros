@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Café & Livros </title>
+</head>
+<body>
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="headerContainer">
+            <img class="logo" src="../img/Logotipo_CaféLivros.png">
+            <ul class="NavBar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="">Meus Dados</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- FIM HEADER -->
+
+
+    <!-- INÍCIO CENTRO -->
+    <div class="geral">
+        <div class="cadastroContainer">
+             <h2>Cadastro</h2>
+             <label for="NomeUsuario" class="input">Nome do Usuário</label>
+                <input id="input_nome" placeholder="nome">
+             <br>
+             <label for="CPFusuario" type="number"></label>
+                <input id="input_cpf" placeholder="insira o CPF">
+             <br>
+             <label for="Telefone">Telefone</label>
+                <input id="Telefone" placeholder="11 111111111" type="number">
+             <br>
+             <label for="Email">Email</label>
+                <input id="Email" name="Email">
+             <br>
+             <label for="senha">Senha</label>
+                <input type="password" id="Senha">
+             <br>
+             <label for="senha">Confirmar senha</label>
+                <input type="password" id="Senha2">
+             <br>
+             <button class="botao" onclick="cadastrar()">CADASTRAR</button><br><br>
+            <div class="validacao">
+                <div id="div_validacao"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_aguardar" class="loading-div"></div>
+    <!-- FIM CENTRO -->
+
+
+    <!-- INÍCIO RODAPÉ -->
+   <div class="rodape">
+    <div class="rodapeContainer">
+        <div class="informações">
+            <div class="contato">
+                <img class="img" src="../img/logo-microsoft-outlook-1024.png" alt="imagem do logo do outlook">
+                <p>
+                    alice.barbosa@sptech.school
+                </p>
+            </div>
+            <div class="contato">
+                <img class="img" src="../img/Logo_Instagram.png" alt="imagem do logo do instagram">
+                <p>
+                    café&Livros
+                </p>
+            </div>
+            <div class="contato">
+                <img class="img" src="../img/Pinterest-logo.png" alt="imagem do logo do Pinterest">
+                <p>
+                    café&Livros
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIM RODAPÉ -->
+
+    
+</body>
+</html>
+<script>
+
+function cadastrar() {
+          aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nome = input_nome.value;
+        var cpf = input_cpf.value;
+        var telefone = Telefone.value;
+        var email = Email.value;
+        var senha = Senha.value;
+        var confirmacaoSenha = Senha2.value;
+
+        if (nome == "" || cpf == "" || telefone == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            // if (emailVar.indexOf('@') < 0 || emailVar.indexOf('.com') < 0) {
+
+            //     div_validacao.innerHTML = `Email invalido <br><br>`
+
+            // } else if (senhaVar.length < 7) {
+
+            //     div_validacao.innerHTML = `A senha tem que ter no mínino 7 caracteres`
+
+            // } else if (confirmacaoSenhaVar != senhaVar) {
+
+            //     div_validacao.innerHTML = `Senha incompativel`
+
+
+            // } else {
+            //     div_validacao.innerHTML = ``
+            //     setTimeout(() => {
+            //         window.location = "login.html";
+            //     }, "0000")
+            // }
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                empresaServer: cpf,
+                telefoneServer: telefone,
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login-tech.html";
+                }, "1000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+
+</script>

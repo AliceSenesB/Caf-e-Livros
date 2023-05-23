@@ -37,49 +37,24 @@
     <!-- INÍCIO INDICAÇÕES -->
     <div class="indicacoes">
         <div class="indicacoesContainer">
-            <h2>(◍•ᴗ•◍)❤ Indicações da Semana! (◍•ᴗ•◍)❤</h2>
+            <h2>(◍•ᴗ•◍)❤ Indicações da Semana! ❤(◍•ᴗ•◍)</h2>
             <div class="linha">
                 <div class="card">
-                    <p class="titulos">Kimi Ni Todoke</p>
-                    <img src="../img/Kimi_ni_Todoke.jpg">
-                    <p>
-                        Kimi ni Todoke é um anime e mangá que acompanha Sawako, uma garota tímida e sem amigos, em sua vida escolar. Nesse novo ano letivo, ela trá muitas surpresas agradáveis.
-                    </p>
-                    <button onclick="verMaisKimi()"><a href="https://www.brmangas.net/ler/kimi-ni-todoke-1-online/">Ver Mais</a></button>
+                    <a href=""><img src="../img/Kimi_ni_Todoke.jpg"></a>
                 </div>
                 <div class="card">
-                    <p class="titulos">Para Todos os Garotos que já Amei</p>
-                    <img src="../img/ParaTodosOsGarotosQueJaAmei.jpg">
-                    <p>
-                        Para Todos os Garotos que já Amei conta a história de Lara Jean quando sua irmãzinha envia 5 cartas de amor antigas para 5 rapazes. 
-                    </p>
-                    <button onclick="verMaisLara()"><a href="https://www.netflix.com/br/title/80203147">Ver mais</a></button>
+                    <a href=""> <img src="../img/ParaTodosOsGarotosQueJaAmei.jpg"></a>
                 </div>
                 <div class="card">
-                    <p class="titulos">Who Made Me a Princess</p>
-                    <img src="../img/WhoMadeMe.jpg">
-                    <p class="p1">
-                        Como se fosse uma novel, uma garota comum reencarna no corpo de Athanasia Obelia, uma gentil princesa que está fadada a morrer pelas mãos de seu pai ao completar 18 anos.
-                    </p>
-                    <button onclick="verMaisAthy()"><a href="https://mangalivre.net/ler/suddenly-became-a-princess-one-day-novel/online/200562/1#/!page0">Ver Mais</a></button>
+                    <a href="WhoMadeMeAPrincess.html"><img src="../img/WhoMadeMe.jpg"></a>
                 </div>
             </div>
             <div class="linha2">
                 <div class="card">
-                    <p class="titulos">Anne de Green Gables</p>
-                    <img src="../img/anne.jpg">
-                    <p class="p1">
-                        A Saga de livros de Anne nos mostra a vida de uma pequea garotiha orfã que é adotada por um casal de irmãos. Em Gren Gables, Anne pode viver tudo o que sempre quis, uma família.
-                    </p>
-                    <button onclick="verMaisAnne()"><a href="https://www.netflix.com/br/title/80136311">Ver Mais</a></button>
+                    <a href=""><img src="../img/anne.jpg"></a>
                 </div>
                 <div class="card">
-                    <p class="titulos">Principe Cruel</p>
-                    <img src="../img/PrincipeCruel.jpg">
-                    <p class="p1">
-                        Jude e suas irmãs são levadas para um reino mágico após verem o assinato de sua mãe e pai. Em um terreno encantadoramente hostil, ela aprende a viver de acordo com as fadas.
-                    </p>
-                    <button onclick="verMaisCardan()"><a href="https://www.amazon.com.br/pr%C3%ADncipe-cruel-Vol-Povo-Ar/dp/850111555X">Ver Mais</a></button>
+                    <a href=""><img src="../img/PrincipeCruel.jpg"></a>
                 </div>
             </div>
         </div>
@@ -109,11 +84,11 @@
                     <br><br><br>
                     <button class="buttonQuiz" onclick="verResultadoQuiz()">Resultado</button>
                 </div>
-            </div>
-            <div class="resultadoQuiz" id="div_resultadoQuiz">
-                <span class="escritaResultado" id="span_escritaResultado"></span>
-                <br>
-                <img id="img_ResultadoQuiz">
+                <div class="resultadoQuiz" id="div_resultadoQuiz">
+                    <span class="escritaResultado" id="span_escritaResultado"></span>
+                    <br>
+                    <img id="img_ResultadoQuiz">
+                </div>
             </div>
         </div>
     </div>
@@ -182,7 +157,7 @@
             if (hobbies != 'imaginar' && hobbies != 'pintar' && hobbies != 'ler') {
                 if (poder != 'voar' && poder != 'ler mentes' && poder != 'velocidade') {
                     if (genero != 'romance' && genero != 'fantasia' && genero != 'melodrama') {
-                        span_escritaResultado.innerHTML = `OPS o(╥﹏╥)o ! Parece que alguma informação está errada, releia as questões e veja se suas respostas estão de acordo com o enunciado.:(`
+                        span_escritaResultado.innerHTML = `OPS o(╥﹏╥)o ! Parece que alguma informação está errada, releia as questões e veja se suas respostas estão de acordo com o enunciado.`
 
                         img_ResultadoQuiz.src = "../img/img-NarutoTriste.png"
                     }

@@ -1,7 +1,7 @@
 body {
     background-attachment: fixed;
     margin: 0;
-    background-color:#A0CAD1; 
+    background-color:#1b4147; 
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,6 +13,7 @@ body {
 /* INÍCIO HEADER */
 .header {
     background-color: #A0CAD1;
+    Background-image: linear-gradient( rgb(44, 77, 82),#A0CAD1); 
     height: 101px;
     width: 100%;
 }
@@ -31,7 +32,7 @@ body {
     height: 200px;
 }
 
-li :hover{
+li:hover{
     transform: scale(1.1);
     transition: 0.5s ease-in-out;
 }
@@ -75,14 +76,15 @@ a{
 /* INÍCIO INDICAÇÕES */
 .indicacoes{
     width: 100%;
-    height: 1000px;
+    height: 700px;
     display: flex;
-    background-image: linear-gradient(#A0CAD1, #4b7d85);
+    background-image: linear-gradient(#1b4147, #0b2529);
+    color: white;
 }
 
 .indicacoesContainer{
     width: 100%;
-    height: 1000px;
+    height: 700px;
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -92,7 +94,7 @@ a{
 
 .linha{
     display: flex;
-    height: 300px;
+    height: 250px;
     width: 90%;
     align-items: center;
     justify-content: center;
@@ -100,43 +102,30 @@ a{
 
 .linha2{
     display: flex;
-    height: 300px;
+    height: 250px;
     width: 90%;
     align-items: center;
     justify-content: center;
 }
 
-.titulos{
-    font-family: luminari, fantasy;
-}
-
-button{
+.card img{
+    height: 250px;
+    width: 350px;
     border-radius: 30px;
-    border-color: indianred;
-    background-color: aliceblue;
-    color: indianred;
-    height: 100px;
-    width: 200px;
+    box-shadow: 0px 5px 5px black;
 }
 
-.indicacoes img{
-    height: 200px;
-    width: 100px;
+.indicacoes img:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
 }
 
 .card{
     display: flex;
-    flex-direction: column;
-    background-color: #6da4ad;
-    font-family: Optima, sans-serif;
-    border-radius: 30px;
-    border: aliceblue solid 4px;
-    align-items: center;
-    width: 400px;
-    height:300px ;
-    padding: 20px;
+    width: 350px;
+    height:250px ;
     justify-content: center;
-    margin: 10px;
+    margin: 20px;
 }
 /* FIM INDICAÇÕES */
 
@@ -146,31 +135,35 @@ button{
     width: 100%;
     height: 600px;
     display: flex;
-    background-color: #4b7d85;
+    background-color: #0b2529;
 }
 
 .quizContainer{
-    width: 95%;
+    width: 98%;
     height: 500px;
     display: flex;
     margin: auto;
-    border: aliceblue solid 4px;
-    border-radius: 30px;
 }
 
 .quiz{
     width: 100%;
     height: 500px;
     display: flex;
+    background-color: #28555c;
+    padding-left: 25px;
+    border-radius: 30px;
+    justify-content: space-around;
 }
 
 .quizPerguntas h1{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: xx-large;
+    color: white;
 }
 
 .quizPerguntas span{
     font-size: larger;
+    color: white;
 }
 
 .quizPerguntas input{
@@ -180,14 +173,14 @@ button{
 }
 
 .resultadoQuiz{
-    background-color: #4b7d85;
     font-size: large;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 500px;
-    width: 600px;
+    width: 500px;
+    background-color: #28555c;
 }
 
 .resultadoQuiz img {
@@ -198,6 +191,14 @@ button{
 .buttonQuiz{
     height: 50px;
     width: 200px;
+}
+.AreaQuiz button{
+    border-radius: 30px;
+    border-color: indianred;
+    background-color: aliceblue;
+    color: indianred;
+    height: 50px;
+    width: 150px;
 }
 /* FIM QUIZ */
 
@@ -247,6 +248,15 @@ button{
     color: #161515;
     font-size: larger;
 }
+
+.Outros button{
+    border-radius: 30px;
+    border-color: indianred;
+    background-color: aliceblue;
+    color: indianred;
+    height: 50px;
+    width: 150px;
+}
 /* FIM OUTRAS FUNCIONALIDADES */
 
 
@@ -256,9 +266,9 @@ button{
     height:300px;
     display: flex;
     margin: 0%;
-    background-color: #4b7d85;
+    background-color: #A0CAD1;
     justify-content: baseline;
-    background-image: linear-gradient(#4b7d85, rgb(44, 77, 82));
+    background-image: linear-gradient(#A0CAD1, rgb(44, 77, 82));
 }
 
 .rodapeContainer{
