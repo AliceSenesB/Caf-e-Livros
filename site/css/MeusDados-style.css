@@ -3,10 +3,6 @@ body {
     margin: 0;
     background-color:#1b4147; 
     width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 /* INÍCIO HEADER */
@@ -53,25 +49,23 @@ a{
 /* FIM HEADER */
 
 
-/* INÍCIO CENTRO */
-.geral{
+/* INÍCIO SIMULADOR */
+.simulador{
     display: flex;
-    margin: 0%;
-    background-image: url(../img/imgCadastro.jpeg);
+    height: 700px;
     width: 100%;
-    height: 570px;
-    background-position: auto;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: auto;
+    align-items: center;
+    justify-content: center;
 }
 
-.cadastroContainer{
-    width: 100%;
-    height: 550px;
+.simuladorContainer{
     display: flex;
+    height: 700px;
+    width: 90%;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 button{
@@ -81,30 +75,32 @@ button{
     color: indianred;
     height: 50px;
     width: 150px;
-    margin: 20px;
 }
 
-.card{
-    width: 30%;
-    height: 490px;
-    background-color: #a0cad1b7;
-    border-radius: 30px;
-    text-align: center;
+.tituloSimulador{
+    margin: 15px;
+    margin-bottom: 30px;
 }
 
-.card label{
-    font-size: larger;
-    margin:6px;
+.chamadaMaior{
+    color: white;
+    font-size: x-large;
 }
 
-.card input{
-    font-size: medium;
-    border-radius: 30px;
-    border-color: none;
-    border: none;
-    margin:6px;
+.explicacao{
+    color: white;
+    font-size: large;
 }
-/* FIM CENTRO */
+
+/* FIM SIMULADOR */
+
+
+/* INÍCIO CADASTRAR LIVROS */
+/* FIM CADASTRAR LIVROS */
+
+
+/* INÍCIO GRÁFICOS */
+/* INÍCIO GRÁFICOS */
 
 
 /* INÍCIO RODAPÉ */

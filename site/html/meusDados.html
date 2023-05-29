@@ -1,41 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Dados - Café & Livros</title>
 
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../css/MeusDados-style.css">
 </head>
+
 <body>
-    
-       <!-- INÍCIO SIMULADOR -->
-       <div class="simulador">
+
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="headerContainer">
+            <img class="logo" src="../img/Logotipo_CaféLivros.png">
+            <ul class="NavBar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="meusDados.html">Meus Dados</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- FIM HEADER -->
+
+    <!-- INÍCIO SIMULADOR -->
+    <div class="simulador">
         <div class="simuladorContainer">
-            <div class="tituloSimulador">
-                Calculadora Literária
-            </div>
-            <div class="chamada">Que tal calcular quantas páginas preciso ler por dia para terminar um livro em 1 mês
-                <span class="subChamada">
-                    Se ler um livro por mês, ao final do ano você terá lido 12 livros! Pode parecer muito, mas aos
-                    poucos se tornará fácil e quem sabe até mesmo será possível diminuir o tempo de leitura e aumentar
-                    os livros lidos por mês!
-                </span>
+            <img class="tituloSimulador" src="../img/Titulo_Simulador.png">
+            <div class="chamada">
+                <span class="chamadaMaior">Que tal calcular seu ritmo de leitura?</span>
             </div>
             <div class="explicacao">
-                Este é um teste de tempo. Para que seja efetivo, é preciso que você leia o trecho a seguir como faria em
-                uma situação de leitura comum e sem pular nenhuma parte.
+                <span>
+                    Este é um teste de tempo. Para que seja efetivo, é preciso que você leia o trecho a seguir como faria em uma situação de leitura comum e sem pular nenhuma parte.
+                </span>
                 <p> O cronômetro começará a rodar quando você pressionar o botão.</p>
                 <button onclick="teste()">Começar Teste</button>
                 <div id="div_trechoLivro"></div>
                 <div class="resultado">Você leu <span>350</span> palavras em <span>_____</span> segundos.</div>
             </div>
+            <div class="calculadora2">
+                <span class="subChamada">
+                    Vamos calcular agora quanto temp você demorará para terminar de ler seu livro:
+                </span>
+                <div class="calculos">
+                    <p>Quantas páginas tem seu livro?</p>
+                    <br>
+                    <input id="input_QtdPags" placeholder=" ex.: 300">
+                    <br><br>
+                    <p>Quanto tempo (em minutos) você quer separar para ler por dia?</p>
+                    <input id="input_TempoDia" placeholder=" ex.: 24">
+                    <br><br>
+                    <button onclick="calcular()">Calcular</button>
+                    <br>
+                    <div id="div_resultadoCalculos" class="resultadoCalculos"></div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- FIM SIMULADOR -->
 
+    <!-- INÍCIO RODAPÉ -->
+    <div class="rodape">
+        <div class="rodapeContainer">
+            <div class="informações">
+                <div class="contato">
+                    <img class="img" src="../img/logo-microsoft-outlook-1024.png" alt="imagem do logo do outlook">
+                    <p>
+                        alice.barbosa@sptech.school
+                    </p>
+                </div>
+                <div class="contato">
+                    <img class="img" src="../img/Logo_Instagram.png" alt="imagem do logo do instagram">
+                    <p>
+                        café&Livros
+                    </p>
+                </div>
+                <div class="contato">
+                    <img class="img" src="../img/Pinterest-logo.png" alt="imagem do logo do Pinterest">
+                    <p>
+                        café&Livros
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM RODAPÉ -->
+
+
 </body>
+
 </html>
 <script>
 
@@ -81,10 +138,8 @@ As meninas olharam fixamente para o pai. Mrs. Bennet disse apenas:<br><br>
 
         <button onclick="acabarTeste()">Acabei!</button>;
 
-        const element = document.getElementById("testeLeitura");
-        var contador = 0
-        var tempo = setInterval(function () { element.innerHTML = contador++ }, 1000);
-        tempo
+        var temporizador = setInterval
+
     };
 
     function acabarTeste() {
@@ -93,8 +148,17 @@ As meninas olharam fixamente para o pai. Mrs. Bennet disse apenas:<br><br>
     };
 
 
+    function calcular(){
+        var qtdPag = Number(input_QtdPags.value);
+        var qtdMin = Number(input_TempoDia.value);
+        var resultado = qtdPag
 
+        div_resultadoCalculos.innerHTML = `Com base no se tempo, seu livro demorará cerca de `
+    
 
+        //  CERCA DE 2100 CARACTERES POR PÁGINA
+        // 70 CARACTERES POR LINHA, 30 LINHAS
+    }
 
 
 

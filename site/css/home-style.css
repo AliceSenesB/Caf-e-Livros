@@ -92,6 +92,10 @@ a{
     justify-content: space-evenly;
 }
 
+.indicacoesContainer h2{
+    margin-top: 50px;
+}
+
 .linha{
     display: flex;
     height: 250px;
@@ -136,6 +140,7 @@ a{
     height: 600px;
     display: flex;
     background-color: #0b2529;
+    margin-bottom: 30px;
 }
 
 .quizContainer{

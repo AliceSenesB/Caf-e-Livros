@@ -17,7 +17,7 @@
                 <li><a href="home.html">Home</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
                 <li><a href="login.html">Login</a></li>
-                <li><a href="">Meus Dados</a></li>
+                <li><a href="meusDados.html">Meus Dados</a></li>
             </ul>
         </div>
     </div>
@@ -79,7 +79,7 @@
                     <span>5. Você prefere livros de romance, fantasia ou melodrama?<br></span>
                     <input id="input_genero" placeholder="ex.:romance">
                     <br><br><br>
-                    <button class="buttonQuiz" onclick="verResultadoQuiz()">Resultado</button>
+                    <button class="buttonQuiz" onclick="verResultadoQuiz()">RESULTADO</button>
                 </div>
                 <div class="resultadoQuiz" id="div_resultadoQuiz">
                     <span class="escritaResultado" id="span_escritaResultado"></span>
@@ -97,7 +97,7 @@
             <div class="cardOutros">
                 <h2>Quer ver mais?</h2>
                 <p>Faça seu cadastro e veja mais funcionalidades do nosso site! Ler é uma preciosidade não acha?</p>
-                <button onclick="cadastre-se()"><a href="../html/cadastro.html">Cadastre-se</a></button>
+                <button onclick="cadastrar()"><a href="../html/cadastro.html">Cadastre-se</a></button>
             </div>
         </div>
     </div>
@@ -141,11 +141,11 @@
 
         resultado = 0;
 
-        var nome = input_nome.value;
-        var palavra = input_palavra.value;
-        var hobbies = input_hobbies.value;
-        var poder = input_poder.value;
-        var genero = input_genero.value;
+        var nome = input_nome.value.toLowerCase() ;
+        var palavra = input_palavra.value.toLowerCase();
+        var hobbies = input_hobbies.value.toLowerCase();
+        var poder = input_poder.value.toLowerCase();
+        var genero = input_genero.value.toLowerCase();
 
         span_escritaResultado.innerHTML = "";
         img_ResultadoQuiz.src = "";
