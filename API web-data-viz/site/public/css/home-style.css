@@ -1,0 +1,304 @@
+body {
+    background-attachment: fixed;
+    margin: 0;
+    background-color:#1b4147; 
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/* INÍCIO HEADER */
+.header {
+    background-color: #A0CAD1;
+    Background-image: linear-gradient( rgb(44, 77, 82),#A0CAD1); 
+    height: 101px;
+    width: 100%;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+}
+
+li:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.NavBar {
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: medium;
+    width: 500px;
+    display: flex;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #342B29;    
+}
+
+/* FIM HEADER */
+
+
+/* INÍCIO BANNER */
+.banner {
+    height: 450px;
+    width: 100%;
+    display: flex;
+}
+
+.bannerContainer{
+    height: 600px;
+    width: 100%;
+}
+
+.imagemHome {
+    width: 100%;
+    height: 500px;
+}
+/* FIM BANNER */
+
+
+/* INÍCIO INDICAÇÕES */
+.indicacoes{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    background-image: linear-gradient(#1b4147, #0b2529);
+    color: white;
+}
+
+.indicacoesContainer{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.indicacoesContainer h2{
+    margin-top: 50px;
+}
+
+.linha{
+    display: flex;
+    height: 250px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.linha2{
+    display: flex;
+    height: 250px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img{
+    height: 250px;
+    width: 350px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 5px black;
+}
+
+.indicacoes img:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.card{
+    display: flex;
+    width: 350px;
+    height:250px ;
+    justify-content: center;
+    margin: 20px;
+}
+/* FIM INDICAÇÕES */
+
+
+/* INÍCIO QUIZ */
+.AreaQuiz{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    background-color: #0b2529;
+    margin-bottom: 30px;
+}
+
+.quizContainer{
+    width: 98%;
+    height: 500px;
+    display: flex;
+    margin: auto;
+}
+
+.quiz{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: #28555c;
+    padding-left: 25px;
+    border-radius: 30px;
+    justify-content: space-around;
+}
+
+.quizPerguntas h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+    color: white;
+}
+
+.quizPerguntas span{
+    font-size: larger;
+    color: white;
+}
+
+.quizPerguntas input{
+    border-radius: 30px;
+    border: none;
+    font-size: larger;
+}
+
+.resultadoQuiz{
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    background-color: #28555c;
+}
+
+.resultadoQuiz img {
+    height: 300px;
+    width: 300px;
+}
+
+.buttonQuiz{
+    height: 50px;
+    width: 200px;
+}
+.AreaQuiz button{
+    border-radius: 30px;
+    border-color: indianred;
+    background-color: aliceblue;
+    color: indianred;
+    height: 50px;
+    width: 150px;
+}
+/* FIM QUIZ */
+
+/* INICIO OUTRAS FUNCIONALIDADES */
+.Outros{
+    display: flex;
+    width: 100%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.OutrosContainer{
+    background-image: url(../img/img-Outros.jpg);
+    width: 95%;
+    height:450px;
+    background-position: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto;
+    padding: 45px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 45px;
+}
+
+.cardOutros{
+    display: flex;
+    background-color:#a0cad1b7;
+    width: 40%;
+    height: 200px;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    vertical-align: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.cardOutros h2{
+    color: #161515;
+    font-size: x-large;
+}
+
+.cardOutros p{
+    color: #161515;
+    font-size: larger;
+}
+
+.Outros button{
+    border-radius: 30px;
+    border-color: indianred;
+    background-color: aliceblue;
+    color: indianred;
+    height: 50px;
+    width: 150px;
+}
+/* FIM OUTRAS FUNCIONALIDADES */
+
+
+/* INÍCIO RODAPÉ */
+.rodape{
+    width: 100%;
+    height:100px;
+    display: flex;
+    margin: 0%;
+    background-color: #A0CAD1;
+    justify-content: baseline;
+    background-image: linear-gradient(#A0CAD1, rgb(44, 77, 82));
+}
+
+.rodapeContainer{
+    width: 90%;
+    height: 100px;
+    margin: auto;
+}
+
+.informações{
+    display: flex;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.img{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.contato{
+    width: 100px;
+    height: 100px;
+}
+/* FIM RODAPÉ */
