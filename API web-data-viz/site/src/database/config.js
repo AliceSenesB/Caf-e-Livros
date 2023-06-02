@@ -17,12 +17,12 @@ var sqlServerConfig = {
     }
 }
 
-// CONEXÃO DO MYSQL WORKBENCH
+// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
-    host: "SEU_SERVIDOR",
-    database: "SEU_BANCO_DE_DADOS",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
+    host: "localhost",
+    database: "CaféELivros",
+    user: "aluno",
+    password: "sptech",
 };
 
 function executar(instrucao) {
@@ -55,7 +55,7 @@ function executar(instrucao) {
                 resolve(resultados);
             });
             conexao.on('error', function (erro) {
-                return ("ERRO NO MySQL WORKBENCH: ", erro.sqlMessage);
+                return ("ERRO NO MySQL WORKBENCH (Local): ", erro.sqlMessage);
             });
         });
     } else {

@@ -52,7 +52,7 @@ a{
 /* INÍCIO SIMULADOR */
 .simulador{
     display: flex;
-    height: 750px;
+    height: auto;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,7 @@ a{
 
 .simuladorContainer{
     display: flex;
-    height: 700px;
+    height: auto;
     width: 90%;
     justify-content: center;
     align-items: center;
@@ -100,6 +100,15 @@ button{
 .explicacao{
     color: black;
     font-size: large;
+}
+
+.calculos input{
+    font-size: medium;
+    border-radius: 30px;
+    border-color: none;
+    border: none;
+    margin:6px;
+    height: 20px;
 }
 /* FIM SIMULADOR */
 
