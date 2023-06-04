@@ -49,49 +49,58 @@ a{
 /* FIM HEADER */
 
 
-/* INICIO BANNER */
-.banner {
-    height: 500px;
-    width: 100%;
-    display: flex;
-}
-
-.bannerContainer{
-    height: 600px;
-    width: 100%;
-}
-
-.imagemDados {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 30px;
-}
-/* INICIO BANNER */
-
-
 /* INICIO CADASTRO LIVROS */
 .cadastrar{
-    width: 100%;
+    width: 95%;
     height: 500px;
     display: flex;
     margin: 30px;
+    color: white;
 }
 
 .cadastrarContainer{
     width: 95%;
     height: 500px;
     display: flex;
-    margin: auto;
+    justify-content: center;
+}
+
+.cadastrarLivros{
+    width: 95%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    margin-left: 70px;
     flex-direction: row;
 }
 
-.cadastrarLivros{    
-    width: 95%;
+.inserirDados{    
+    width: 500px;
     height: 500px;
     background-color: #28555c;
     padding-left: 25px;
-    border-radius: 30px;
+    border-radius: 30px 0px 0px 30px;
     justify-content: space-around;
+}
+
+.imagemDados {
+    width: 600px;
+    height: 500px;
+}
+
+.mostrarDados{
+    color: white;
+    width: 500px;
+    height: 450px;
+    background-color: #28555c;
+    padding: 25px;
+    border-radius: 0px 30px 30px 0px;
+    justify-content: space-around;
+    font-size: medium;
+}
+
+.livros {
+    font-size: large;
 }
 
 .cadastrarLivros input{
@@ -104,6 +113,7 @@ a{
 .cadastrarLivros span{
     font-size: larger;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 25px;
 }
 
 button{
@@ -113,7 +123,9 @@ button{
     color: indianred;
     height: 50px;
     width: 150px;
+    margin-left: 40px;
 }
+
 /* FIM CADASTRO LIVROS */
 
 

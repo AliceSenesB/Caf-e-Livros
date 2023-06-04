@@ -27,44 +27,44 @@
     <!-- FIM HEADER -->
 
 
-    <!--  INICIO BANNER-->
-    <div class="banner">
-        <div class="bannerContainer">
-            <img class="imagemDados" src="./img/img-dados.jpg">
-        </div>
-    </div>
-    <!-- FIM BANNER -->
-
-
     <!-- INICIO CADASTRO LIVROS -->
     <div class="cadastrar">
         <div class="cadastrarContainer">
             <div class="cadastrarLivros">
-                <h3>Minha Estante</h3>
-                <br>
-                <span>Nome do Livro</span>
-                <br>
-                <input id="NomeLivro" placeholder="Nome do Livro">
-                <br>
-                <span>Quantidade de Páginas</span>
-                <br>
-                <input id="qtdPags" placeholder="Qtd Páginas">
-                <br>
-                <span>Autor do Livrro</span>
-                <br>
-                <input id="Autor" placeholder="Autor">
-                <br>
-                <span>Gênero</span>
-                <br>
-                <input id="Genero" placeholder="Genero">
-                <br>
-                <span>Classificação</span>
-                <br>
-                <input id="classificacao" placeholder="Ex.: + 12">
-                <br><br>
-                <button onclick="cadastrar()">CADASTRAR LIVRO</button>
+                <div class="inserirDados">
+                    <h3>Minha Estante</h3>
+                    <br>
+                    <span>Nome do Livro</span>
+                    <br>
+                    <input id="NomeLivro" placeholder="Nome do Livro">
+                    <br>
+                    <span>Quantidade de Páginas</span>
+                    <br>
+                    <input id="qtdPags" placeholder="Qtd Páginas">
+                    <br>
+                    <span>Autor do Livrro</span>
+                    <br>
+                    <input id="Autor" placeholder="Autor">
+                    <br>
+                    <span>Gênero</span>
+                    <br>
+                    <input id="Genero" placeholder="Genero">
+                    <br>
+                    <span>Classificação</span>
+                    <br>
+                    <input id="classificacao" placeholder="Ex.: + 12">
+                    <br><br>
+                    <button onclick="cadastrarLivros()">CADASTRAR LIVRO</button>
+                </div>
+                <img class="imagemDados" src="./img/img-dados.jpg">
+                <div class="mostrarDados">
+                    <span>Livros Cadastrados</span>
+                    <br><br>
+                    <button onclick="verLivros()">VER LIVROS CADASTRADOS</button>
+                    <br><br>
+                    <div class="livros" id="div_LivrosCadastrados"></div>
+                </div>
             </div>
-            <div></div>
         </div>
     </div>
     <!-- FIM CADASTRO LIVROS -->
@@ -105,3 +105,40 @@
 </body>
 
 </html>
+
+<script>
+    var ListaLivros = [];
+
+    function cadastrarLivros() {
+        
+        if (ListaLivros.indexOf(NomeLivro.value) !== -1) {
+            alert(`ERRO - Não é possível cadastrar dois livros com o mesmo nome.`)
+        } else {
+            ListaLivros.push(NomeLivro.value);
+
+            localStorage.setItem("livros", JSON.stringify(ListaLivros));
+        }
+
+    }
+
+        function verLivros() {
+
+            div_LivrosCadastrados.innerHTML = ""; // Limpa o conteúdo existente da div
+
+            var livrosArmazenados = localStorage.getItem("livros");
+            if (livrosArmazenados) {
+                ListaLivros = JSON.parse(livrosArmazenados);
+            }
+
+            for (contador = 0; contador < ListaLivros.length; contador++) {
+                if (contador < 15) {
+
+                    div_LivrosCadastrados.innerHTML += `- ${ListaLivros[contador]}<br>`
+
+
+                }
+            }
+        }
+
+
+</script>
