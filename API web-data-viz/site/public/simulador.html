@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador - Café & Livros</title>
+
+    <link rel="stylesheet" href="./css/simulador-style.css">
+</head>
+
+<body>
+
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="headerContainer">
+            <img class="logo" src="./img/Logotipo_CaféLivros.png">
+            <ul class="NavBar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="meusDados.html">Meus Dados</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- FIM HEADER -->
+
+    <!-- INÍCIO SIMULADOR -->
+    <div class="simulador">
+        <div class="simuladorContainer">
+            <img class="tituloSimulador" src="./img/Titulo_Simulador.png.png">
+            <div class="card" id="div_card">
+                <div class="chamada" id="div_Calculo">
+                    <span class="chamadaMaior">Que tal calcular seu ritmo de leitura?</span><br><br>
+                    <div class="explicacao">
+                        <span>
+                            Este é um teste de tempo. Para que seja efetivo, é preciso que você leia o trecho a seguir
+                            como
+                            faria em uma situação de leitura comum e sem pular nenhuma parte.
+                        </span>
+                        <p> O cronômetro começará a rodar quando você pressionar o botão.</p>
+                    </div>
+                    <button onclick="teste()">Começar Teste</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM SIMULADOR -->
+
+    <!-- INÍCIO RODAPÉ -->
+    <div class="rodape">
+        <div class="rodapeContainer">
+            <div class="informações">
+                <div class="contato">
+                    <img class="img" src="./img/logo-microsoft-outlook-1024.png" alt="imagem do logo do outlook">
+                    <p>
+                        alice.barbosa@sptech.school
+                    </p>
+                </div>
+                <div class="contato">
+                    <img class="img" src="./img/Logo_Instagram.png" alt="imagem do logo do instagram">
+                    <p>
+                        café&Livros
+                    </p>
+                </div>
+                <div class="contato">
+                    <img class="img" src="./img/Pinterest-logo.png" alt="imagem do logo do Pinterest">
+                    <p>
+                        café&Livros
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM RODAPÉ -->
+
+
+</body>
+
+</html>
+<script>
+
+    var intervalo;
+    var contador = 0
+
+    function atualizarCronometro() {
+        contador++;
+        console.log(contador);
+    }
+
+    function teste() {
+
+        // Iniciar o cronômetro com intervalo de 1 segundo (1000 milissegundos)
+        intervalo = setInterval(atualizarCronometro, 1000);
+
+        div_card.innerHTML = `"— Hazel Grace, você está estonteante.<br><br> — Estou, não estou?<br><br>Ouvi um barulho vindo de um canto escuro do cômodo e vi Isaac <br><br>— Quer se sentar? — perguntei para ele.<br><br> — Não. Estou prestes a começar um elogio fúnebre. Você está atrasada. <br><br> — Você...O quê? <br><br>Gus fez um gesto para eu me sentar. Puxei uma cadeira para perto dele, e ele girou a cadeira de rodas para ficar de frente para Isaac— Quero comparecer ao meu enterro — Gus disse. — A propósito, você vai dizer algumas palavras nele?<br><br> — Humm, claro, vou sim — falei, repousando minha cabeça no ombro dele.<br><br> — Beleza — Tenho esperança de poder comparecer como fantasma, mas, só para garantir, pensei que talvez… — Ele faz uma pausa para procurar as melhores palavras qu possui — bem, não é que eu queira deixar vocês numa situação difícil nem nada, mas esta tarde tive a ideia de organizar um pré-enterro, e deduzi que, já que estou me sentindo relativamente bem, não há momento melhor que o presente. Bem, de qualquer forma, sei que isso é um pouco autoengrandecedor. <br><br> — Ei, você está roubando meu elogio fúnebre — Isaac disse. — A primeira parte fala de como você era um filho da mãe autoengrandecedor. — Eu ri.<br><br> — Tá, tá — Gus disse. — Quando quiser.<br><br> Isaac limpou a garganta. <br><br> — Augustus Waters era um filho da mãe autoengrandecedor. Mas nós o perdoamos. Nós o perdoamos não porque seu coração figurativo era tão bom quanto o coração literal era ruim, nem porque ele sabia segurar um cigarro melhor que qualquer outro não fumante na história, nem porque ele viveu dezoito anos quando deveria ter vivido mais. <br><br> — Dezessete — Gus o corrigiu. <br><br> — Estou presumindo que você ainda tenha algum tempo de vida, seu filho da mãe que só sabe interromper os outros. Vou dizer uma coisa para vocês, — Isaac continuou — Augustus Waters falava tanto que seria capaz de interromper a pessoa falando em seu próprio enterro. E ele era pretensioso: Meu Jesus Cristo, aquele garoto nunca mijava sem ponderar a respeito das ressonâncias metafóricas abundantes na produção de dejetos humanos. E ele era vaidoso: não creio ter conhecido uma pessoa mais atraente fisicamente que tivesse uma consciência tão profunda de sua própria atratividade física. Mas só digo uma coisa: quando os cientistas do futuro aparecerem na minha casa com olhos robóticos e me disserem para experimentá-los, vou mandar eles se foderem, porque não quero ver um mundo sem o Augustus. <br><br>Eu estava meio que chorando a essa altura."
+
+        <br><br>
+
+        <button onclick="acabarTeste()">Acabei!</button>
+        `
+    };
+
+
+    function acabarTeste() {
+
+        clearInterval(intervalo);
+        var tempoTotal = contador;
+
+        div_card.innerHTML = `
+    <h3 class="resultCalc1">Parabéns! Você leu 328 palavras em <b>${tempoTotal}<b> segundos.</h3>
+    <br>
+    <img src="./img/simuladorGif.gif">
+    <br><br>
+    <button onclick="calc2()">Próximo!</button>
+`;
+    }
+
+    function calc2() {
+        div_card.innerHTML = `
+                <div class="calculadora2">
+                    <div class="subChamada">
+                        <h2>Vamos calcular agora quanto tempo você demorará para terminar de ler seu livro:</h2>
+                    </div>
+                    <div class="calculos">
+                        <span>Quantas páginas tem seu livro?</span>
+                        <br>
+                        <input id="input_QtdPags" placeholder=" ex.:300">
+                        <br>
+                        <span>Quanto tempo (em minutos) você quer separar para ler por dia?</span>
+                        <br>
+                        <input id="input_TempoDia" placeholder=" ex.:20">
+                        <br>
+                        <br>
+                        <button onclick="calcular()">Calcular</button>
+                    </div>
+                </div>
+                `
+    }
+
+    function calcular() {
+
+        var minDisponiveis = Number(input_TempoDia.value);
+        var qtdPags = Number(input_QtdPags.value);
+        var palavrasMin = 400 / contador;
+        var palavrasTotalLivro = 400 * qtdPags;
+
+        var palavrasPorDia = palavrasMin * minDisponiveis;
+
+        var diasLeitura = palavrasTotalLivro / palavrasPorDia
+
+        div_card.innerHTML = `
+        Tendo como base que os livros possuem cerca de 400 palavras por página, você terminará de ler seu livro atual em ${diasLeitura.toFixed()} dias.<br><br> É importante observar que essa fórmula fornece apenas uma estimativa, pois o ritmo de leitura e o tempo dedicado podem variar de pessoa para pessoa e ao longo do tempo. Além disso, outros fatores, como a complexidade do conteúdo do livro e a fluência do leitor, também podem influenciar o tempo de leitura. 
+        <br><br>
+        <img src="./img/bella-simulador.gif">`
+
+    }
+
+</script>

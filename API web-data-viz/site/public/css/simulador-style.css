@@ -1,7 +1,7 @@
-body {
+body{
     background-attachment: fixed;
     margin: 0;
-    background-color: #0b2529;
+    background-color:#1b4147; 
     width: 100%;
 }
 
@@ -49,61 +49,37 @@ a{
 /* FIM HEADER */
 
 
-/* INICIO BANNER */
-.banner {
-    height: 500px;
-    width: 100%;
+/* INÍCIO SIMULADOR */
+.simulador{
     display: flex;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/hanako-simulador.jpg);
+    background-position: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto;
 }
 
-.bannerContainer{
-    height: 600px;
-    width: 100%;
-}
-
-.imagemDados {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 30px;
-}
-/* INICIO BANNER */
-
-
-/* INICIO CADASTRO LIVROS */
-.cadastrar{
-    width: 100%;
-    height: 500px;
+.simuladorContainer{
     display: flex;
-    margin: 30px;
+    height: auto;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
-.cadastrarContainer{
-    width: 95%;
-    height: 500px;
-    display: flex;
-    margin: auto;
-    flex-direction: row;
-}
-
-.cadastrarLivros{    
-    width: 95%;
-    height: 500px;
-    background-color: #28555c;
-    padding-left: 25px;
+.card{
+    background-color:  #a0cad1b7;
+    width: 62%;
+    height: auto;
+    padding: 20px;
     border-radius: 30px;
-    justify-content: space-around;
-}
-
-.cadastrarLivros input{
-    border-radius: 30px;
-    border: none;
-    font-size: larger;
-    margin: 8px;
-}
-
-.cadastrarLivros span{
-    font-size: larger;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 50px;
 }
 
 button{
@@ -113,12 +89,32 @@ button{
     color: indianred;
     height: 50px;
     width: 150px;
+    margin-bottom: 15px;
 }
-/* FIM CADASTRO LIVROS */
 
+.chamadaMaior{
+    color: black;
+    font-size: x-large;
+}
 
-/* INICIO DASHBOARDS */
-/* FIM DASHBOARDS */
+.explicacao{
+    color: black;
+    font-size: large;
+}
+
+.resultCalc1{
+    font-size: larger;
+}
+
+.calculos input{
+    font-size: medium;
+    border-radius: 30px;
+    border-color: none;
+    border: none;
+    margin:6px;
+    height: 20px;
+}
+/* FIM SIMULADOR */
 
 
 /* INÍCIO RODAPÉ */
