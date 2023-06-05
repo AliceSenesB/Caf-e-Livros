@@ -99,7 +99,7 @@
 <script>
 
     function cadastrar() {
-        aguardar(); 
+        // aguardar(); 
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -114,7 +114,7 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-        finalizarAguardar();
+        // finalizarAguardar();
             // if (emailVar.indexOf('@') < 0 || emailVar.indexOf('.com') < 0) {
 
             //     div_validacao.innerHTML = `Email invalido <br><br>`
@@ -169,13 +169,13 @@
                 }, "1000")
 
                 limparFormulario();
-                finalizarAguardar();
+                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;

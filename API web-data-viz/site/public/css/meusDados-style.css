@@ -125,11 +125,36 @@ button{
     width: 150px;
     margin-left: 40px;
 }
-
 /* FIM CADASTRO LIVROS */
 
 
 /* INICIO DASHBOARDS */
+.graficos{
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash{
+    height: 300px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    color: white;
+    font-size: larger;
+    text-align: center;
+}
+
+.myChart {
+    height: 200px;
+}
 /* FIM DASHBOARDS */
 
 

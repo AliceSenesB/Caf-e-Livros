@@ -2,41 +2,29 @@ CREATE DATABASE CaféELivros;
 
 USE CaféELivros;
 
-CREATE TABLE usuarios(
+CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR (45),
-CPF CHAR(11),
-telefone CHAR(11),
+nome VARCHAR (50),
 email VARCHAR (45),
-senha VARCHAR(10)
-);
-
-CREATE TABLE quiz (
-idQuiz INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR (45),
-dtCriacao DATE 
-);
-
-CREATE TABLE resultados(
-idResultado INT PRIMARY KEY AUTO_INCREMENT,
-dtHora DATETIME default current_timestamp, 
-personagem VARCHAR(26),
-fkQuiz INT, 
-	CONSTRAINT fkQuiz FOREIGN KEY (fkQuiz)
-		REFERENCES quiz(idQuiz),
-fkUsuario INT, 
-	CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)
-		REFERENCES usuarios(idUsuario)
+senha VARCHAR(7)
 );
 
 CREATE TABLE livros (
 idLivro INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR (45),
 genero VARCHAR(26),
-classificacaoIndicativa VARCHAR(6),
-autor VARCHAR(26),
-fkUsuario2 INT, 
-	CONSTRAINT fkUsuario2 FOREIGN KEY (fkUsuario2)
-		REFERENCES usuarios(idUsuario)
+autor VARCHAR(26)
 );
 
+CREATE TABLE dados(
+idDados INT,
+generoFav VARCHAR(26),
+ritmoLeitura INT,
+fkUsuario INT, 
+	CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)
+		REFERENCES usuario(idIUsuario),
+fkLeitura INT, 
+	CONSTRAINT fkLeitura FOREIGN KEY (fkLeitura)
+		REFERENCES livros(idlivro),
+CONSTRAINT pkComposta PRIMARY KEY (idDados, fkUsuario, fkLeitura)
+);

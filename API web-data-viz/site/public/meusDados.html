@@ -45,14 +45,6 @@
                     <span>Autor do Livrro</span>
                     <br>
                     <input id="Autor" placeholder="Autor">
-                    <br>
-                    <span>Gênero</span>
-                    <br>
-                    <input id="Genero" placeholder="Genero">
-                    <br>
-                    <span>Classificação</span>
-                    <br>
-                    <input id="classificacao" placeholder="Ex.: + 12">
                     <br><br>
                     <button onclick="cadastrarLivros()">CADASTRAR LIVRO</button>
                 </div>
@@ -71,6 +63,36 @@
 
 
     <!-- INICIO DASH -->
+    <h1 class="titulo">Gráficos</h1>
+    <br><br>
+    <div class="dash">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
     <!-- FIM DASH -->
 
 
@@ -107,10 +129,12 @@
 </html>
 
 <script>
+
+    // FUNÇÕES SOBRE OS VETORES
     var ListaLivros = [];
 
     function cadastrarLivros() {
-        
+
         if (ListaLivros.indexOf(NomeLivro.value) !== -1) {
             alert(`ERRO - Não é possível cadastrar dois livros com o mesmo nome.`)
         } else {
@@ -121,24 +145,25 @@
 
     }
 
-        function verLivros() {
+    function verLivros() {
 
-            div_LivrosCadastrados.innerHTML = ""; // Limpa o conteúdo existente da div
+        div_LivrosCadastrados.innerHTML = ""; // Limpa o conteúdo existente da div
 
-            var livrosArmazenados = localStorage.getItem("livros");
-            if (livrosArmazenados) {
-                ListaLivros = JSON.parse(livrosArmazenados);
-            }
+        var livrosArmazenados = localStorage.getItem("livros");
+        if (livrosArmazenados) {
+            ListaLivros = JSON.parse(livrosArmazenados);
+        }
 
-            for (contador = 0; contador < ListaLivros.length; contador++) {
-                if (contador < 15) {
+        for (contador = 0; contador < ListaLivros.length; contador++) {
+            if (contador < 15) {
 
-                    div_LivrosCadastrados.innerHTML += `- ${ListaLivros[contador]}<br>`
+                div_LivrosCadastrados.innerHTML += `- ${ListaLivros[contador]}<br>`
 
 
-                }
             }
         }
+    }
+    // FUNÇÕES SOBRE OS VETORES
 
 
 </script>
