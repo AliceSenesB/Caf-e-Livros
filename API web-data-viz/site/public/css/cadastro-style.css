@@ -82,13 +82,13 @@ button{
 
 .card{
     width: 30%;
-    height: 490px;
+    height: 400px;
     background-color: #a0cad1b7;
     border-radius: 30px;
     text-align: center;
 }
 
-.card label{
+.card span{
     font-size: larger;
     margin:6px;
 }

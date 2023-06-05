@@ -129,31 +129,48 @@ button{
 
 
 /* INICIO DASHBOARDS */
-.graficos{
+.dash{
     display: flex;
-    flex-direction: column;
-    height: 1000px;
+    flex-direction: row;
+    height: 600px;
     width: 100%;
     justify-content: center;
     align-items: center;
+    justify-content: space-around;
 }
 
-.dash{
-    height: 300px;
-    width: auto;
+.dashContainer{
+    height: 400px;
+    width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 30px;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 30px;
+    height: 150px;
+    width: 350px;
+    box-shadow: 0px 5px 5px black;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    margin: 20px;
 }
 
 .titulo{
-    color: white;
+    color: black;
     font-size: larger;
     text-align: center;
 }
 
 .myChart {
-    height: 200px;
+    height: 400px;
 }
 /* FIM DASHBOARDS */
 
