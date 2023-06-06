@@ -85,7 +85,7 @@
 </html>
 <script>
     function login() {
-        aguardar();
+        // aguardar();
 
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
@@ -124,10 +124,10 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "dashboards.html";
+                        window.location = "meusDados.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

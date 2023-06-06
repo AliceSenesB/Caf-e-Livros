@@ -54,7 +54,11 @@
                     <br><br>
                     <button onclick="verLivros()">VER LIVROS CADASTRADOS</button>
                     <br><br>
-                    <div class="livros" id="div_LivrosCadastrados"></div>
+                    <div class="livros" id="div_LivrosCadastrados">
+                        <ul id="lista_livros">
+                            <!-- <li>teste</li> -->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,29 +123,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
-
 </html>
 
 <script>
@@ -151,35 +132,267 @@
 
     function cadastrarLivros() {
 
-        if (ListaLivros.indexOf(NomeLivro.value) !== -1) {
-            alert(`ERRO - Não é possível cadastrar dois livros com o mesmo nome.`)
-        } else {
-            ListaLivros.push(NomeLivro.value);
+        // if (ListaLivros.indexOf(NomeLivro.value) !== -1) {
+        //     alert(`ERRO - Não é possível cadastrar dois livros com o mesmo nome.`)
+        // } else {
+        //     ListaLivros.push(NomeLivro.value);
 
-            localStorage.setItem("livros", JSON.stringify(ListaLivros));
-        }
+        //     localStorage.setItem("livros", JSON.stringify(ListaLivros));
+        // }
+
+        var NomeLivroVar = NomeLivro.value;
+        var qtdPagVar = qtdPags.value;
+        var AutorVar = Autor.value;
+
+        fetch("/usuarios/cadastrarLivros", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: NomeLivroVar,
+                qtdPagServer: qtdPagVar,
+                autorServer: AutorVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
 
     }
 
     function verLivros() {
 
-        div_LivrosCadastrados.innerHTML = ""; // Limpa o conteúdo existente da div
+        // div_LivrosCadastrados.innerHTML = ""; // Limpa o conteúdo existente da div
 
-        var livrosArmazenados = localStorage.getItem("livros");
-        if (livrosArmazenados) {
-            ListaLivros = JSON.parse(livrosArmazenados);
-        }
+        // var livrosArmazenados = localStorage.getItem("livros");
+        // if (livrosArmazenados) {
+        //     ListaLivros = JSON.parse(livrosArmazenados);
+        // }
 
-        for (contador = 0; contador < ListaLivros.length; contador++) {
-            if (contador < 15) {
+        // for (contador = 0; contador < ListaLivros.length; contador++) {
+        //     if (contador < 15) {
 
-                div_LivrosCadastrados.innerHTML += `- ${ListaLivros[contador]}<br>`
+        //         div_LivrosCadastrados.innerHTML += `- ${ListaLivros[contador]}<br>`
 
 
+        //     }
+        // }
+
+          fetch("usuarios/listarLivros", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
             }
-        }
+          }).then(function (resposta) {
+            console.log(resposta)
+
+            if(resposta.ok){
+
+                resposta.json().then(function (resposta) {
+                console.log("dados Recebidos: ", JSON.stringify(resposta));
+                
+                var lista_livros = document.getElementById("lista_livros");
+                lista_livros.innerHTML = "";
+                for(let i = 0; i < resposta.length; i++){
+                        var resposta_02 = resposta[i];
+                        
+                        // finalizarAguardar();
+                        console.log(`Passou ${i}`)
+                        var item_Lista = document.createElement("li");
+                        item_Lista.innerHTML = resposta[i].nome;
+                        lista_livros.appendChild(item_Lista);
+                        sessionStorage.setItem(`ID_LIVRO${i+1}`, resposta[i].idLivro);
+                    }
+                    
+            });
+            }else {
+                alert("Erro no Select");
+            }
+
+          })  
+
     }
     // FUNÇÕES SOBRE OS VETORES
+
+    window.onload = obterDadosGraficos();
+
+function obterDadosGraficos() {
+    obterDadosGrafico(1)
+}
+
+// verificar_autenticacao();
+
+// O gráfico é construído com três funções:
+// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+// A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+//     Para ajustar o "select", ajuste o comando sql em src/models
+function obterDadosGrafico(idUsuario) {
+
+    // alterarTitulo(idAquario)
+
+    // if (proximaAtualizacao != undefined) {
+    //     clearTimeout(proximaAtualizacao);
+    // }
+
+    fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotarGrafico(resposta, idUsuario);
+                
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+function plotarGrafico(resposta, idUsuario) {
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = ["Alice"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Ritmo de Leitura',
+            data: [],
+            fill: true,
+            backgroundColor: `rgb(0,0,255)`,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }
+    ]
+    };
+
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        dados.datasets[0].data.push(registro.ritmoLeitura);
+    }
+
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+        type: 'bar',
+        data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById(`myChart`),
+        config
+    );
+
+    setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+}
+
+
+// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+// buscando a última medida inserida em tabela contendo as capturas, 
+
+//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+//     Para ajustar o "select", ajuste o comando sql em src/models
+function atualizarGrafico(idUsuario, dados, myChart) {
+
+
+
+    fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (novoRegistro) {
+
+                obterdados(idUsuario);
+                // alertar(novoRegistro, idAquario);
+                console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                console.log(`Dados atuais do gráfico:`);
+                console.log(dados);
+
+                // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                // avisoCaptura.innerHTML = ""
+
+
+                // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                //     console.log("---------------------------------------------------------------")
+                //     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                //     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                //     console.log("Horário do novo dado capturado:")
+                //     console.log(novoRegistro[0].momento_grafico)
+                //     console.log("Horário do último dado capturado:")
+                //     console.log(dados.labels[dados.labels.length - 1])
+                //     console.log("---------------------------------------------------------------")
+                // } else {
+                    // tirando e colocando valores no gráfico
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].ritmoLeitura); // incluir uma nova medida de umidade
+
+                    // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                    // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                    myChart.update();
+                // }
+
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+}
 
 
 </script>

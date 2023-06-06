@@ -140,11 +140,12 @@
                 `
     }
 
+    
     function calcular() {
-
+        
+        var palavrasMin = 400 / contador;
         var minDisponiveis = Number(input_TempoDia.value);
         var qtdPags = Number(input_QtdPags.value);
-        var palavrasMin = 400 / contador;
         var palavrasTotalLivro = 400 * qtdPags;
 
         var palavrasPorDia = palavrasMin * minDisponiveis;
@@ -154,8 +155,68 @@
         div_card.innerHTML = `
         Tendo como base que os livros possuem cerca de 400 palavras por página, você terminará de ler seu livro atual em ${diasLeitura.toFixed()} dias.<br><br> É importante observar que essa fórmula fornece apenas uma estimativa, pois o ritmo de leitura e o tempo dedicado podem variar de pessoa para pessoa e ao longo do tempo. Além disso, outros fatores, como a complexidade do conteúdo do livro e a fluência do leitor, também podem influenciar o tempo de leitura. 
         <br><br>
-        <img src="./img/bella-simulador.gif">`
+        <img src="./img/bella-simulador.gif">
+        
+        `
+       
+        cadastrarPalavras(palavrasMin) 
 
     }
+
+
+
+    function cadastrarPalavras(palavrasMin) {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+var palavrapminVar = palavrasMin;
+var fkUsuario = sessionStorage.ID_USUARIO;
+var fkLeitura = 1;
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarPalavras", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                palavrapminServer: palavrapminVar,
+                fkUsuarioServer: fkUsuario,
+                fkLeituraServer: fkLeitura
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+               console.log('Cadastro realizado com sucesso! Redirecionando para tela de Login...')
+
+            
+
+                setTimeout(() => {
+                    window.location = "meusDados.html";
+                }, "1000")
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+
+
+
+
 
 </script>

@@ -102,7 +102,7 @@
         var confirmacaoSenha = input_Senha2.value;
 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
-            cardErro.style.display = "block"
+            // cardErro.style.display = "block";
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
             // finalizarAguardar();
@@ -126,9 +126,10 @@
             //     }, "0000")
             // }
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
         }
+        //  else {
+        //     // setInterval(sumirMensagem, 5000)
+        // }
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -148,7 +149,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
@@ -169,8 +170,8 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>
