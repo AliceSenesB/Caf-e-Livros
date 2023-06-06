@@ -171,7 +171,13 @@ a{
     color: white;
 }
 
-.quizPerguntas input{
+.quizPerguntas select {
+    border-radius: 30px;
+    border: none;
+    font-size: larger;
+}
+
+.quizPerguntas input {
     border-radius: 30px;
     border: none;
     font-size: larger;

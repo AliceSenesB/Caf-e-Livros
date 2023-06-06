@@ -31,5 +31,3 @@ CONSTRAINT pkComposta PRIMARY KEY (idDados, fkUsuario, fkLeitura)
 select * from dados;
 SELECT * FROM Livros;
 select * from usuario;
-
-delete from usuario where idUsuario = 2;

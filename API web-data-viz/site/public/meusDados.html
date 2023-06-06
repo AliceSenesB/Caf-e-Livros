@@ -42,7 +42,7 @@
                     <br>
                     <input id="qtdPags" placeholder="Qtd Páginas">
                     <br>
-                    <span>Autor do Livrro</span>
+                    <span>Autor do Livro</span>
                     <br>
                     <input id="Autor" placeholder="Autor">
                     <br><br>
@@ -163,13 +163,11 @@
             if (resposta.ok) {
 
                 limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
         });
 
         return false;
@@ -192,7 +190,7 @@
 
 
         //     }
-        // }
+        // } ANTES 
 
           fetch("usuarios/listarLivros", {
             method: "GET",
